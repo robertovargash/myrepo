@@ -47,4 +47,11 @@ return [
     'editing_type'             => 'Editando', 
     'ctlist'             => 'Lista de tipos de contactos',
 
+    'contact_added'             => 'Contacto adicionado!!!',
+    'contact_updated'             => 'Contacto actualizado!!!',
+    'contact_deleted'             => 'Contacto eliminado!!!',
+
+    'contactt_added'             => 'Tipo de contacto adicionado!!!',
+    'contactt_updated'             => 'Tipo de contacto actualizado!!!',
+    'contactt_deleted'             => 'Tipo de contacto eliminado!!!',
 ];

@@ -47,4 +47,12 @@ return [
     'editing_type'             => 'Editing type', 
     'ctlist'             => 'Type list',
 
+    'contact_added'             => 'Contact added!!!',
+    'contact_updated'             => 'Contact updated!!!',
+    'contact_deleted'             => 'Contact deleted!!!',
+
+    'contactt_added'             => 'Contact type added!!!',
+    'contactt_updated'             => 'Contact type updated!!!',
+    'contactt_deleted'             => 'Contact type deleted!!!',
+
 ];

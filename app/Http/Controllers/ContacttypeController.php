@@ -46,7 +46,7 @@ class ContacttypeController extends Controller
         Contacttype::create($request->all());
 
         return redirect()->route('contacttypes.index')
-                        ->with('success','Contact type added.');
+                        ->with('success',trans('contact_list.contactt_added'));
     }
 
     /**
@@ -90,7 +90,7 @@ class ContacttypeController extends Controller
         $contacttype->update($request->all());
 
         return redirect()->route('contacttypes.index')
-                        ->with('success','Contact type updated.');
+                        ->with('success',trans('contact_list.contactt_updated'));
     }
 
     /**
@@ -111,7 +111,7 @@ class ContacttypeController extends Controller
             $contactype = Contacttype::find($contactt_id);
             $contactype->delete();            
             return redirect()->route('contacttypes.index')
-                            ->with('success','Contact type deleted');
+                            ->with('success',trans('contact_list.contactt_deleted'));
         }       
     }
 }
