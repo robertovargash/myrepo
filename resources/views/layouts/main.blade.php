@@ -38,47 +38,49 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand-md navbar-dark navbar-black">
-    <div class="container">
-      <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-        <ul class="navbar-nav">
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ url('/') }}" class="nav-link">@lang('contact_list.home')</a>
-          </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('contacts.index') }}" class="nav-link">@lang('contact_list.rlist')</a>
-          </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('contacttypes.index') }}" class="nav-link">@lang('contact_list.ctlist')</a>
+  <div class="container">
+    <img src="{{ asset('adminlte/img/Isucorpbanner.png') }}" class="img-fluid" alt="Responsive image">
+    <nav class="main-header navbar navbar-expand-md navbar-dark navbar-black">
+      <div class="container">
+        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+          <ul class="navbar-nav">
+            <li class="nav-item d-sm-inline-block">
+              <a href="{{ url('/') }}" class="nav-link">@lang('contact_list.home')</a>
+            </li>
+            <li class="nav-item d-sm-inline-block">
+              <a href="{{ route('contacts.index') }}" class="nav-link">@lang('contact_list.rlist')</a>
+            </li>
+            <li class="nav-item d-sm-inline-block">
+              <a href="{{ route('contacttypes.index') }}" class="nav-link">@lang('contact_list.ctlist')</a>
+            </li>
+          </ul>
+        </div>
+        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+          <li class="nav-link">@lang('contact_list.language')</li>
+          {{-- <li class="nav-item d-sm-inline-block"><b>@lang('contact_list.language')</b></li> --}}
+          <li class="nav-item dropdown">        
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="fa fa-cog fa-fw"></i> <i class="fa fa-caret-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="{{route('language','en')}}" class="dropdown-item"><i class="fa fa-cog fa-fw"></i> EN</a>
+              <div class="dropdown-divider"></div>
+              <a href="{{route('language','es')}}" class="dropdown-item"><i class="fa fa-cog fa-fw"></i> ES</a>          
+            </div>
           </li>
         </ul>
       </div>
-      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-        <li class="nav-link">@lang('contact_list.language')</li>
-        {{-- <li class="nav-item d-sm-inline-block"><b>@lang('contact_list.language')</b></li> --}}
-        <li class="nav-item dropdown">        
-          <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="fa fa-cog fa-fw"></i> <i class="fa fa-caret-down"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <a href="{{route('language','en')}}" class="dropdown-item"><i class="fa fa-cog fa-fw"></i> EN</a>
-            <div class="dropdown-divider"></div>
-            <a href="{{route('language','es')}}" class="dropdown-item"><i class="fa fa-cog fa-fw"></i> ES</a>          
-          </div>
-        </li>
-      </ul>
-    </div>
-    <!-- Right navbar links -->
-  </nav>
- 
+      <!-- Right navbar links -->
+    </nav>
+  </div><!-- /.container-fluid -->
+
   @yield('content')
 
   <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      
-    </div>
+  <footer class="main-footer">    
     <!-- Default to the left -->
     <strong>ISUCorp Test.</strong> @lang('contact_list.foot')
   </footer>
