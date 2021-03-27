@@ -34,6 +34,17 @@ return [
     'home'             => 'Home',
     'guest'             => 'Guest',
     'rlist'             => 'Reservations list',
-    'foot'              => 'PHP with Laravel.'
+    'foot'              => 'PHP with Laravel.',
+    
+    'more_info'              => 'more info',
+    'card_contacts'              => 'Contacts',
+    'card_ctype'              => 'Contact Types',
+
+    'ctype_btnnew'              => 'Add Type',
+    'delete_modalctype_message'             => 'Do you want to delete this type?',
+    'add_modalctype_title'             => 'Create a Type', 
+    'add_modalctype_field'             => 'Insert a Type', 
+    'editing_type'             => 'Editing type', 
+    'ctlist'             => 'Type list',
 
 ];

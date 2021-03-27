@@ -6,9 +6,7 @@
     <div class="container">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <div class="pull-right">
-            <button type="button" class="btn btn-success mb-2 " data-toggle="modal" data-target="#modalAddContact">@lang('contact_list.btn_new')</button>                               
-          </div>
+          <button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target="#modalAddContact">@lang('contact_list.ctype_btnnew')</button>                               
         </div><!-- /.col -->            
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -20,29 +18,23 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">        
-              <h3 class="card-title">@lang('contact_list.contact_card_title')</h3>            
+              <h3 class="card-title">@lang('contact_list.card_ctype')</h3>            
             </div>
             <div class="card-body">
               <table id="tablacontacts" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      <th>@lang('contact_list.contact_name_th')</th>
-                      <th>@lang('contact_list.contact_phone_th')</th>
-                      <th>@lang('contact_list.contact_birth_th')</th>
                       <th>@lang('contact_list.contact_type_th')</th>
                       <th></th>
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach ($contacts as $contact)
+                    @foreach ($contacttypes as $contact)
                     <tr>
-                        <td>{{ $contact->name }}</td>
-                        <td>{{ $contact->phone }}</td>
-                        <td>{{ $contact->birthdate}} </td>
-                        <td>{{ $contact->contacttype->type }}</td>                            
+                        <td>{{ $contact->type }}</td>                       
                          <td>
                            <div>
-                              <a href="{{ route('contacts.edit',$contact) }}" class="btn btn-link"><span class="fas fa-pencil-alt"></a>
+                              <a href="{{ route('contacttypes.edit',$contact) }}" class="btn btn-link"><span class="fas fa-pencil-alt"></a>
                               <a class="btn btn-link deleteContact" data-id="{{$contact->id}}"><span class="fas fa-trash text-danger"></a>                               
                            </div>                                                                          
                         </td>
@@ -52,14 +44,12 @@
               </table>
             </div>
           </div>
-          </div>
         </div>
       </div>
       <!-- /.row -->
     </div><!-- /.container-fluid -->
   </div>
 </div>
-
 
 <div class="modal fade" aria-modal="false" id="deleteContactModal">
   <div class="modal-dialog modal-dialog-centered modal-sm">
@@ -71,11 +61,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>@lang('contact_list.delete_modal_message')</p>
+        <p>@lang('contact_list.delete_modalctype_message')</p>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">@lang('contact_list.delete_modal_closebtn')</button>       
-        <form action="{{route('contacts.destroy')}}" method="POST">
+        <form action="{{route('contacttypes.destroy')}}" method="POST">
           @csrf
           @method('DELETE')
           <input type="hidden", name="id" id="contact_id">
@@ -92,63 +82,24 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">@lang('contact_list.add_modal_title')</h4>
+        <h4 class="modal-title">@lang('contact_list.add_modalctype_title')</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form id="addcontact" action="{{ route('contacts.store') }}" method="POST">
+        <form id="addcontact" action="{{ route('contacttypes.store') }}" method="POST">
           @csrf
            <div class="row">                            
               <div class="col-12">
                   <div class="form-group">
-                      <strong>@lang('contact_list.modal_name_field'):</strong>
+                      <strong>@lang('contact_list.modal_type_field'):</strong>
                       <div class="input-group mb-3">
-                        <input type="text" name="name" class="form-control" placeholder="@lang('contact_list.modal_name_field')">
+                        <input type="text" name="type" class="form-control" placeholder="@lang('contact_list.modal_type_field')">
                         <div class="input-group-append">
-                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                          <span class="input-group-text"><i class="fas fa-list"></i></span>
                         </div>                        
                       </div>                      
-                  </div>
-              </div>              
-              <div class="col-12">
-                  <div class="form-group">
-                      <strong>@lang('contact_list.modal_phone_field'):</strong>
-                      <div class="input-group mb-3">
-                        <input type="text" name="phone" class="form-control" placeholder="@lang('contact_list.modal_phone_field')">
-                        <div class="input-group-append">
-                          <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                        </div>                       
-                      </div>
-                  </div>
-              </div>
-              <div class="col-12">
-                <div class="form-group">
-                    <strong>@lang('contact_list.modal_birth_field'):</strong>
-                    <input type="date" name="birthdate" class="form-control">
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-group">
-                  <strong>@lang('contact_list.modal_type_field'):</strong>                  
-                  <div class="input-group mb-3">
-                    <select class="form-control select2bs4" name="contacttype_id">
-                      <option value="" selected="selected" hidden="hidden">@lang('contact_list.modal_select_field')</option>
-                      @foreach ($contacttypes as $typee)
-                          <option value="{{$typee->id}}">{{$typee->type}}</option>
-                      @endforeach
-                  </select>
-                    <div class="input-group-append">
-                      <span class="input-group-text"><i class="fas fa-list"></i></span>
-                    </div>                    
-                  </div>                  
-                </div>                    
-              </div>
-              <div class="col-12">
-                  <div class="form-group">
-                      <strong>@lang('contact_list.modal_detail_field'):</strong>
-                      <textarea class="form-control textarea" style="height:150px" name="description" placeholder="Descriptions">No details</textarea>
                   </div>
               </div>
               <div class="col-12 text-center">
@@ -183,25 +134,13 @@ $(document).on('click','.deleteContact',function(){
   $(document).ready(function () {
     $('#addcontact').validate({
       rules: {
-        contacttype_id: {
-          required: true,
-        },
-        name: {
-          required: true,
-        },
-        birthdate: {
+        type: {
           required: true,
         },
       },
       messages: {
-        contacttype_id: {
-          required: "@lang('contact_list.modal_type_required')",
-        },
-        name: {
-          required: "@lang('contact_list.modal_required_name')",
-        },
-        birthdate: {
-          required:  "@lang('contact_list.modal_bith_required')",
+        type: {
+          required: "@lang('contact_list.add_modalctype_field')",
         },
       },
       errorElement: 'span',

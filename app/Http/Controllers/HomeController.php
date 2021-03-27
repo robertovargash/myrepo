@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
+use App\Models\Contacttype;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $title = "Inicio";
-        return view('welcome',compact('title'));
+        $contacts = Contact::all()->count();
+        $contacttypes = Contacttype::all()->count();
+        // dd($contacts);
+        return view('welcome',compact('title','contacts','contacttypes'));
     }
 }

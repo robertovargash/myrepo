@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Contacttype;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class ContacttypeController extends Controller
      */
     public function index()
     {
-        //
+        $title = "Contact types";
+        $contacttypes = Contacttype::all();
+        return view('contacttypes.index',compact('title','contacttypes'));
     }
 
     /**
@@ -35,7 +38,15 @@ class ContacttypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'type' => ['required']
+        ],[
+            'type.required' => 'Type is required field'
+        ]);
+        Contacttype::create($request->all());
+
+        return redirect()->route('contacttypes.index')
+                        ->with('success','Contact type added.');
     }
 
     /**
@@ -57,7 +68,8 @@ class ContacttypeController extends Controller
      */
     public function edit(Contacttype $contacttype)
     {
-        //
+        $title = "Contact type data";
+        return view('contacttypes.edit',compact('title','contacttype'));
     }
 
     /**
@@ -69,7 +81,16 @@ class ContacttypeController extends Controller
      */
     public function update(Request $request, Contacttype $contacttype)
     {
-        //
+        $request->validate([
+            'type' => ['required']
+        ],[
+            'type.required' => 'Name is required field'
+        ]);
+
+        $contacttype->update($request->all());
+
+        return redirect()->route('contacttypes.index')
+                        ->with('success','Contact type updated.');
     }
 
     /**
@@ -78,8 +99,19 @@ class ContacttypeController extends Controller
      * @param  \App\Models\Contacttype  $contacttype
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contacttype $contacttype)
+    public function destroy(Request $request)
     {
-        //
+        $contactt_id=$request->input('id');
+        $contact = Contact::where('contacts.contacttype_id','=',$contactt_id)->get();
+        // dd($contact->count() > 0);
+        if ($contact->count() > 0) {
+            return redirect()->route('contacttypes.index')
+            ->with('error','There are contacts with this type');            
+        }else{
+            $contactype = Contacttype::find($contactt_id);
+            $contactype->delete();            
+            return redirect()->route('contacttypes.index')
+                            ->with('success','Contact type deleted');
+        }       
     }
 }

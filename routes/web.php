@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 Route::get('/', function () {
-    return view('home');
+    return redirect()->route('home');
 })->middleware('translate');
 
 Route::get('/', function () {
     $title = "ISUCorp Test";
-    return view('welcome', compact('title'));
+    return redirect()->route('home');
 });
 
 Route::get('/lang/{language}', function ($language) {
@@ -31,8 +31,8 @@ Route::get('/lang/{language}', function ($language) {
 Route::resource('contacts','ContactController');
 Route::delete('contact_delete_modal', 'ContactController@destroy')->name('contacts.destroy');
 
-Route::resource('contactypes','ContacttypeController');
-Route::delete('contactype_delete_modal', 'ContacttypeController@destroy')->name('contacttypes.destroy');
+Route::resource('contacttypes','ContacttypeController');
+Route::delete('contacttype_delete_modal', 'ContacttypeController@destroy')->name('contacttypes.destroy');
 
 Route::post('users/{id}', function ($id) {
     

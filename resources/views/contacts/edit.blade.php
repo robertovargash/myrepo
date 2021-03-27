@@ -1,24 +1,24 @@
 @extends('layouts.main')
 @section('content')
 <div class="content-wrapper">
+  <!-- Content Header (Page header) -->
   <div class="content-header">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-              <h2>@lang('contact_list.edit_header')</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('contacts.index') }}"> @lang('contact_list.back_btn')</a>
-            </div>
-          </div>          
-        </div>
-      </div>
+          <div class="pull-left">
+            <h2>@lang('contact_list.edit_header')</h2>
+          </div>
+          <div class="pull-right">
+              <a class="btn btn-primary" href="{{ route('contacts.index') }}"> @lang('contact_list.back_btn')</a>
+          </div>
+        </div><!-- /.col -->            
+      </div><!-- /.row -->
     </div><!-- /.container-fluid -->
   </div>
+  <!-- /.content-header -->
   <div class="content">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="card card-default">
@@ -93,9 +93,11 @@
           </div>   
         </div>    
       </div>
-    </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
   </div>
 </div>
+
 @endsection
 @section('scripts')
 <script type="text/javascript">

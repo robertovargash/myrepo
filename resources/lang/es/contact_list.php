@@ -34,5 +34,17 @@ return [
     'home'             => 'Inicio',
     'guest'             => 'Invitado',
     'rlist'             => 'Lista de reservaciones',
-    'foot'              => 'PHP con Laravel.'
+    'foot'              => 'PHP con Laravel.',
+
+    'more_info'              => 'ver más',
+    'card_contacts'              => 'Contactos',
+    'card_ctype'              => 'Tipos Contactos',
+
+    'ctype_btnnew'              => 'Crear tipo',
+    'delete_modalctype_message'             => '¿Desea eliminar este tipo?',
+    'add_modalctype_title'             => 'Crear un tipo', 
+    'add_modalctype_field'             => 'Insertar un Tipo', 
+    'editing_type'             => 'Editando', 
+    'ctlist'             => 'Lista de tipos de contactos',
+
 ];
