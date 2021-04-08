@@ -8,7 +8,7 @@
           <div class="row mb-2">
             <div class="col-sm-6">
               <h1 class="m-0">@lang('contact_list.home')</h1>
-            </div><!-- /.col -->            
+            </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
       </div>
@@ -33,7 +33,7 @@
               <div class="small-box bg-success">
                 <div class="inner">
                   <h3>{{ $contacttypes }}</h3>
-  
+
                   <p>@lang('contact_list.card_ctype')</p>
                 </div>
                 <div class="icon">

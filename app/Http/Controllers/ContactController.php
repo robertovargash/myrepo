@@ -7,6 +7,7 @@ use App\Models\Contacttype;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
+
 class ContactController extends Controller
 {
     /**
@@ -16,11 +17,12 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $title = "Contacts";
+       $title = "Contacts";
         $contacts =  Contact::all();
         $contacttypes = Contacttype::all();
         return view('contacts.index',compact('title','contacttypes','contacts'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -120,3 +122,4 @@ class ContactController extends Controller
                         ->with('success',trans('contact_list.contact_deleted'));
     }
 }
+

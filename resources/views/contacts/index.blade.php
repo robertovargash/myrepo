@@ -7,9 +7,9 @@
       <div class="row mb-2">
         <div class="col-sm-6">
           <div class="pull-right">
-            <button type="button" class="btn btn-success mb-2 " data-toggle="modal" data-target="#modalAddContact">@lang('contact_list.btn_new')</button>                               
+            <button type="button" class="btn btn-success mb-2 " data-toggle="modal" data-target="#modalAddContact">@lang('contact_list.btn_new')</button>
           </div>
-        </div><!-- /.col -->            
+        </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
   </div>
@@ -19,8 +19,8 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">        
-              <h3 class="card-title">@lang('contact_list.contact_card_title')</h3>            
+            <div class="card-header">
+              <h3 class="card-title">@lang('contact_list.contact_card_title')</h3>
             </div>
             <div class="card-body">
               <table id="tablacontacts" class="table table-bordered table-striped">
@@ -39,12 +39,12 @@
                         <td>{{ $contact->name }}</td>
                         <td>{{ $contact->phone }}</td>
                         <td>{{ $contact->birthdate}} </td>
-                        <td>{{ $contact->contacttype->type }}</td>                            
+                        <td>{{ $contact->contacttype->type }}</td>
                          <td>
                            <div>
                               <a href="{{ route('contacts.edit',$contact) }}" class="btn btn-link"><span class="fas fa-pencil-alt"></a>
-                              <a class="btn btn-link deleteContact" data-id="{{$contact->id}}"><span class="fas fa-trash text-danger"></a>                               
-                           </div>                                                                          
+                              <a class="btn btn-link deleteContact" data-id="{{$contact->id}}"><span class="fas fa-trash text-danger"></a>
+                           </div>
                         </td>
                     </tr>
                     @endforeach
@@ -74,13 +74,13 @@
         <p>@lang('contact_list.delete_modal_message')</p>
       </div>
       <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('contact_list.delete_modal_closebtn')</button>       
+        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('contact_list.delete_modal_closebtn')</button>
         <form action="{{route('contacts.destroy')}}" method="POST">
           @csrf
           @method('DELETE')
           <input type="hidden", name="id" id="contact_id">
           <button type="submit" class="btn btn-danger">@lang('contact_list.delete_modal_deletebtn')</button>
-        </form>                                            
+        </form>
       </div>
     </div>
     <!-- /.modal-content -->
@@ -100,7 +100,7 @@
       <div class="modal-body">
         <form id="addcontact" action="{{ route('contacts.store') }}" method="POST">
           @csrf
-           <div class="row">                            
+           <div class="row">
               <div class="col-12">
                   <div class="form-group">
                       <strong>@lang('contact_list.modal_name_field'):</strong>
@@ -108,18 +108,18 @@
                         <input type="text" name="name" class="form-control" placeholder="@lang('contact_list.modal_name_field')">
                         <div class="input-group-append">
                           <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>                        
-                      </div>                      
+                        </div>
+                      </div>
                   </div>
-              </div>              
+              </div>
               <div class="col-12">
                   <div class="form-group">
                       <strong>@lang('contact_list.modal_phone_field'):</strong>
                       <div class="input-group mb-3">
-                        <input type="text" name="phone" class="form-control" placeholder="@lang('contact_list.modal_phone_field')">
+                        <input type="text" name="phone" class="form-control" placeholder="@lang('contact_list.modal_phone_field')" data-inputmask='"mask": "(999) 999-9999"' data-mask>
                         <div class="input-group-append">
                           <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                        </div>                       
+                        </div>
                       </div>
                   </div>
               </div>
@@ -131,7 +131,7 @@
               </div>
               <div class="col-12">
                 <div class="form-group">
-                  <strong>@lang('contact_list.modal_type_field'):</strong>                  
+                  <strong>@lang('contact_list.modal_type_field'):</strong>
                   <div class="input-group mb-3">
                     <select class="form-control select2bs4" name="contacttype_id">
                       <option value="" selected="selected" hidden="hidden">@lang('contact_list.modal_select_field')</option>
@@ -141,9 +141,9 @@
                   </select>
                     <div class="input-group-append">
                       <span class="input-group-text"><i class="fas fa-list"></i></span>
-                    </div>                    
-                  </div>                  
-                </div>                    
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="col-12">
                   <div class="form-group">
@@ -154,7 +154,7 @@
               <div class="col-12 text-center">
                 <button type="submit" class="btn btn-success btn-block">@lang('contact_list.modal_insertbtn')</button>
               </div>
-          </div>            
+          </div>
         </form>
       </div>
     </div>
@@ -176,8 +176,8 @@
 
 $(document).on('click','.deleteContact',function(){
   var contactID=$(this).attr('data-id');
-  $('#contact_id').val(contactID); 
-  $('#deleteContactModal').modal('show'); 
+  $('#contact_id').val(contactID);
+  $('#deleteContactModal').modal('show');
 });
 
   $(document).ready(function () {
@@ -215,7 +215,7 @@ $(document).on('click','.deleteContact',function(){
       unhighlight: function (element, errorClass, validClass) {
         $(element).removeClass('is-invalid');
       }
-    });    
+    });
   });
 </script>
 @endsection

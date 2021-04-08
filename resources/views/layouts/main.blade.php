@@ -61,14 +61,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
           <li class="nav-link">@lang('contact_list.language')</li>
           {{-- <li class="nav-item d-sm-inline-block"><b>@lang('contact_list.language')</b></li> --}}
-          <li class="nav-item dropdown">        
+          <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="fa fa-cog fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
               <a href="{{route('language','en')}}" class="dropdown-item"><i class="fa fa-cog fa-fw"></i> EN</a>
               <div class="dropdown-divider"></div>
-              <a href="{{route('language','es')}}" class="dropdown-item"><i class="fa fa-cog fa-fw"></i> ES</a>          
+              <a href="{{route('language','es')}}" class="dropdown-item"><i class="fa fa-cog fa-fw"></i> ES</a>
             </div>
           </li>
         </ul>
@@ -80,7 +80,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   @yield('content')
 
   <!-- Main Footer -->
-  <footer class="main-footer">    
+  <footer class="main-footer">
     <!-- Default to the left -->
     <strong>ISUCorp Test.</strong> @lang('contact_list.foot')
   </footer>
@@ -104,14 +104,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- DataTables -->
 {{-- <script src="../../plugins/datatables/jquery.dataTables.min.js"></script> --}}
 <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-
-{{-- <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script> --}}
 <script src="{{ asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-
-{{-- <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script> --}}
 <script src="{{ asset('adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-
-{{-- <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script> --}}
 <script src="{{ asset('adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
 <!-- InputMask -->
 <script src="{{ asset('adminlte/plugins/moment/moment.min.js') }}"></script>
@@ -124,8 +118,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('adminlte/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
 <!-- overlayScrollbars -->
 <script src="{{ asset('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-
-
+<!-- InputMask -->
+<script src="{{ asset('adminlte/plugins/moment/moment.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
 <!-- Summernote -->
 <script src="{{ asset('adminlte/plugins/summernote/summernote-bs4.min.js') }}"></script>
 <!-- ChartJS -->
@@ -146,7 +141,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     if (mensaje != "") {
       Toast.fire({
             icon: 'success',
-            title: mensaje,        
+            title: mensaje,
           })
     }
 });
@@ -161,7 +156,7 @@ $(function () {
     if (mensaje != "") {
       Toast.fire({
             icon: 'error',
-            title: mensaje,        
+            title: mensaje,
           })
     }
 });
@@ -176,7 +171,7 @@ $(function () {
     if (mensaje != "") {
       Toast.fire({
             icon: 'warning',
-            title: mensaje,        
+            title: mensaje,
           })
     }
 });
